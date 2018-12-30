@@ -12,7 +12,7 @@ public class JDBCClass {
     private static final String URL = "jdbc:mysql://localhost:3306/nightstalker?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
 
-    public static ArrayList<String> getCocktailsList(HttpServletRequest req) {
+    public static ArrayList<String> getCocktailsList() {
 
         ArrayList<String> cocktailsList = new ArrayList<>();
 
