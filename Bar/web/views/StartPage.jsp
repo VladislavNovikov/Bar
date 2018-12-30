@@ -61,7 +61,7 @@
 <script>
     setTimeout(function () {
         document.getElementById("status").style.display = 'none';
-    },1000)
+    },2000)
 </script>
 
 <script src="animationAndStyle/scripts/script.js"></script>
