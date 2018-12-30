@@ -1,0 +1,33 @@
+CREATE TABLE `drinks` (
+  `drinkId` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `degree(%)` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`drinkId`)
+);
+
+
+CREATE TABLE `recip` (
+  `recipeId` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `alcoholPercent` int(11) DEFAULT NULL,
+  PRIMARY KEY (`recipeId`)
+);
+
+CREATE TABLE `values` (
+  `valueId` int(11) NOT NULL AUTO_INCREMENT,
+  `volume (ml)` int(11) DEFAULT NULL,
+  `drinkId` int(11) DEFAULT NULL,
+  `recipeId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`valueId`),
+  KEY `recipeldFK_idx` (`recipeId`),
+  KEY `DrinkldFK_idx` (`drinkId`),
+  CONSTRAINT `DrinkldFK` FOREIGN KEY (`drinkId`) REFERENCES `drinks` (`drinkid`),
+  CONSTRAINT `RecipeldFK` FOREIGN KEY (`recipeId`) REFERENCES `recip` (`recipeid`)
+);
+
+INSERT INTO `nightstalker`.`drinks` (`name`, `degree(%)`) VALUES ('cola', '0');
+INSERT INTO `nightstalker`.`drinks` (`name`, `degree(%)`) VALUES ('vodka', '40');
+INSERT INTO `nightstalker`.`drinks` (`name`, `degree(%)`) VALUES ('whiskey', '43');
+INSERT INTO `nightstalker`.`drinks` (`name`, `degree(%)`) VALUES ('beer', '5');
+INSERT INTO `nightstalker`.`drinks` (`name`, `degree(%)`) VALUES ('gin', '38');
+INSERT INTO `nightstalker`.`drinks` (`name`, `degree(%)`) VALUES ('tonic', '0');
