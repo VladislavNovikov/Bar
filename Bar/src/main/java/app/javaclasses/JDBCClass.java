@@ -15,7 +15,13 @@ public class JDBCClass {
     public static ArrayList<String> getCocktailsList() {
 
         ArrayList<String> cocktailsList = new ArrayList<>();
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
+        } catch (ClassNotFoundException  e) {
+            System.out.println("ClassNotFoundException");
+            e.printStackTrace();
+        }
         try ( Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
               Statement statement = connection.createStatement()){
 
@@ -34,7 +40,7 @@ public class JDBCClass {
 
 
     public static boolean putReq(HttpServletRequest req){
-        /*try{
+        try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             //driver = new com.mysql.cj.jdbc.Driver();
           // DriverManager.registerDriver(driver);
@@ -43,9 +49,8 @@ public class JDBCClass {
         } catch (ClassNotFoundException  e) {
             System.out.println("ClassNotFoundException");
             e.printStackTrace();
-            return;
             //e.printStackTrace();
-        }*/
+        }
         try ( Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
               Statement statement = connection.createStatement();
               PreparedStatement putRecipe = connection.prepareStatement("insert into recip(name,alcoholPercent) values(?, ?)");
