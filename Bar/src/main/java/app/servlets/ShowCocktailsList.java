@@ -16,7 +16,7 @@ public class ShowCocktailsList extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 
 
-        ArrayList<String> cocktailsList = JDBCClass.getCocktailsList(req);
+        ArrayList<String> cocktailsList = JDBCClass.getCocktailsList();
         req.setAttribute("cocktailsList",cocktailsList);
         req.getRequestDispatcher("views/cocktailsList.jsp").forward(req, resp);
     }
